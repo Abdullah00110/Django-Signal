@@ -24,11 +24,11 @@ def log_out(sender, request, user, **kwargs):
 
 
 @receiver(user_login_failed, sender=User)
-def login_failed(sender, request, user, **kwargs):
+def login_failed(sender, credentials, request, **kwargs):
     print("Login failed ------------>")
     print("Sender ------------>", sender)
-    print("Request ------------>", request)
-    print("User --------->", user)
+    print("Credentials ------------>", credentials)
+    print("Request --------->", request)
     print(f"Kwargs {kwargs}")
 
 # user_logged_in.connect(login_success, sender=User)
